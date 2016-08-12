@@ -32,6 +32,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const composed = [applyMiddleware(...middlewares)];
 
+
 const reducers = combineReducers({
     ...uxDemo.reducers,
 

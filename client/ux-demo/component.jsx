@@ -1,4 +1,5 @@
 import React from 'react';
+import uxForm from '../ux-form';
 
 export default class DemoComponent extends React.Component {
     constructor(props) {
@@ -7,8 +8,8 @@ export default class DemoComponent extends React.Component {
 
     render() {
         return (
-            <div>
-                Init Scaffold
+            <div className="container-fluid">
+                <uxForm.Component />
             </div>
         );
     }
