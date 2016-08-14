@@ -4,9 +4,9 @@ function displayErrorMessage(reject, errorMessage, err) {
     reject(new Error(errorMessage, err));
 }
 
-export const postForm(formData) {
+function post(url, formData) {
     return new Promise((resolve, reject) => {
-        superagent.post("http://www.mocky.io/v2/566061f21200008e3aabd919")
+        superagent.post(url)
             .send(formData)
             .end((err, response) => {
                 if (err) {
@@ -18,3 +18,5 @@ export const postForm(formData) {
     });
 }
 
+
+export const postForm = post.bind(null);

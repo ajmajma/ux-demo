@@ -13,10 +13,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch, ownProps) {
     return {
+        changeLabelValue: actionCreators.changeLabelValue.bind(null, dispatch),
+        changeOrderValue: actionCreators.changeOrderValue.bind(null, dispatch),
+        processFormError: actionCreators.processFormError.bind(null, dispatch),
         changeChoicesValue: actionCreators.changeChoicesValue.bind(null, dispatch),
-    	changeLabelValue: actionCreators.changeLabelValue.bind(null, dispatch),
-    	changeOrderValue: actionCreators.changeOrderValue.bind(null, dispatch),
-    	processFormError: actionCreators.processFormError.bind(null, dispatch)
+        changeDefaultValue: actionCreators.changeDefaultValue.bind(null, dispatch),
+        processFormData: actionCreators.processFormData.bind(null, dispatch)
     };
 }
 

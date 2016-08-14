@@ -10,10 +10,13 @@ export default class DemoComponent extends React.Component {
         return (
             <div className="container">
                 <uxForm.Component
-                    form={this.props.form}
                     changeChoicesValue={this.props.changeChoicesValue}
+                    changeDefaultValue={this.props.changeDefaultValue}
                     changeLabelValue={this.props.changeLabelValue}
                     changeOrderValue={this.props.changeOrderValue}
+                    form={this.props.form}
+                    processFormData={this.props.processFormData}
+                    processFormError={this.props.processFormError}
                     />
             </div>
         );
@@ -23,8 +26,11 @@ export default class DemoComponent extends React.Component {
 DemoComponent.displayName = 'DemoComponent';
 
 DemoComponent.propTypes = {
-    form: React.PropTypes.object,
     changeChoicesValue: React.PropTypes.func,
+    changeDefaultValue: React.PropTypes.func,
     changeLabelValue: React.PropTypes.func,
-    changeOrderValue: React.PropTypes.func
+    changeOrderValue: React.PropTypes.func,
+    form: React.PropTypes.object,
+    processFormData: React.PropTypes.func,
+    processFormError: React.PropTypes.func
 };

@@ -1,2 +1,1 @@
-export const TITLE_MAX_LENGTH = 100;
-export const DESCRIPTION_MAX_LENGTH = 250;
+export const CHOICES_MAX_LENGTH = 50;

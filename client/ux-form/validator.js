@@ -1,24 +1,13 @@
 import _ from 'lodash';
 import * as validations from './validations';
 
-
-function dueDateValidator(form, value, name, errorMessage) {
-    if (value <= form.availableDate) {
-        return {
-            [name]: errorMessage || "Invalid value"
-        };
-    }
-    return {};
-}
-
 const VALIDATORS = {
     label: {
         isRequired: true
 
     },
     choices: {
-        maxLength: validations.CHOICES_MAX_LENGTH
-
+        maxLength: validations.CHOICES_MAX_LENGTH,
     }
 };
 
@@ -26,12 +15,12 @@ function genericValidate(form, memo, value, name) {
     const validator = VALIDATORS[name];
 
     if (validator) {
-        if (validator.isRequired && !value.value.length) {
+        if (validator.isRequired && !value.length) {
             return {
                 ...memo,
                 [name]: "This field is required"
             };
-        } else if (validator.maxLength && value.value.length > validator.maxLength) {
+        } else if (validator.maxLength && value.length > validator.maxLength) {
             return {
                 ...memo,
                 [name]: `This field has a maximum of ${validator.maxLength} character`
@@ -50,11 +39,24 @@ export function validateForm(form) {
     return _.reduce(form, genericValidate.bind(null, form), {});
 }
 
-function reduceAndCleanForm(memo, value, key) {
-    if (typeof value.value === 'string') {
-        const newValue = _.trim(value.value);
+function trimChoiceValues(memo, value, key) {
+    const trimValue = _.trim(value);
 
-        memo[key] = { ...value, value: newValue };
+    return [
+        ...memo,
+        trimValue
+    ];
+}
+
+function reduceAndCleanForm(memo, value, key) {
+    if (typeof value === 'string') {
+        const newValue = _.trim(value);
+
+        memo[key] = newValue;
+    } else if (value instanceof Array) {
+        const trimmedArray = _.reduce(value, trimChoiceValues, []);
+
+        memo[key] = trimmedArray;
     } else {
         memo[key] = value;
     }
