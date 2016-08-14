@@ -6,5 +6,7 @@ export default {
     Component,
     container,
     Container: container(),
-    reducers
+    combinedReducers: {
+        main: reducers
+    }
 };

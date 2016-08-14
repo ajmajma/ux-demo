@@ -12,18 +12,13 @@ function dueDateValidator(form, value, name, errorMessage) {
 }
 
 const VALIDATORS = {
-    title: {
-        isRequired: true,
-        maxLength: validations.TITLE_MAX_LENGTH
+    label: {
+        isRequired: true
 
     },
-    description: {
-        maxLength: validations.DESCRIPTION_MAX_LENGTH
+    choices: {
+        maxLength: validations.CHOICES_MAX_LENGTH
 
-    },
-    dueDate: {
-        customValidator: dueDateValidator,
-        errorMessage: "Due date must be after available date"
     }
 };
 

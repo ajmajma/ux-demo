@@ -8,8 +8,13 @@ export default class DemoComponent extends React.Component {
 
     render() {
         return (
-            <div className="container-fluid">
-                <uxForm.Component />
+            <div className="container">
+                <uxForm.Component
+                    form={this.props.form}
+                    changeChoicesValue={this.props.changeChoicesValue}
+                    changeLabelValue={this.props.changeLabelValue}
+                    changeOrderValue={this.props.changeOrderValue}
+                    />
             </div>
         );
     }
@@ -18,4 +23,8 @@ export default class DemoComponent extends React.Component {
 DemoComponent.displayName = 'DemoComponent';
 
 DemoComponent.propTypes = {
+    form: React.PropTypes.object,
+    changeChoicesValue: React.PropTypes.func,
+    changeLabelValue: React.PropTypes.func,
+    changeOrderValue: React.PropTypes.func
 };

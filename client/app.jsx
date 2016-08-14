@@ -34,7 +34,7 @@ const composed = [applyMiddleware(...middlewares)];
 
 
 const reducers = combineReducers({
-    ...uxDemo.reducers,
+    ...uxDemo.combinedReducers,
 
 });
 
