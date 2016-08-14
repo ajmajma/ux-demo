@@ -13,7 +13,7 @@ const defaultState = immutable.fromJS({
             "North America",
             "Eastern Europe",
             "Latin America",
-            "Middle East and Africa"
+            "Middle East and AfricaAfricaAfricaAfricaAfricaAfricaAfricaAfrica"
         ],
         displayAlpha: true
     }
