@@ -59,12 +59,14 @@ export default function(state = defaultState, action) {
                             console.log("Form posted succesfully: ", action.data);
                             return state.update('form', immutable.Map(),
                                 (oldSettings) => oldSettings.set('choices', action.data.choices)
+                                                            .set('invalidForm', {})
                             );
 
                         case status.FAILURE:
                             console.log("This call has failed, currently due to a CORS issue, but here is the payload: ", action.data);
                             return state.update('form', immutable.Map(),
                                 (oldSettings) => oldSettings.set('choices', action.data.choices)
+                                                            .set('invalidForm', {})
                             );
 
                         default:
